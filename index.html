@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mach1ne Print | Impresiones 3D</title>
+<meta name="description" content="Mach1ne Print: figuras, armas para cosplay, llaveros y accesorios impresos en 3D a pedido.">
+<meta name="theme-color" content="#008080">
+<link rel="icon" type="image/png" href="logo.png">
+<style id="css">
+:root{--desk:#008080;--face:#c0c0c0;--hi:#fff;--sh:#808080;--dk:#000;--title:#000080;--paper:#ffffee;--red:#800000;--ink:#000;--link:#0000ee;--peach:#ffe0d0;--ok:#006400;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--desk:#003a3a;--face:#2e2e2e;--hi:#5a5a5a;--sh:#151515;--title:#00005a;--paper:#1c1b14;--ink:#e6e6dc;--link:#8ab4ff;--peach:#3a2a22;--ok:#6fdc6f}}
+:root[data-theme="dark"]{--desk:#003a3a;--face:#2e2e2e;--hi:#5a5a5a;--sh:#151515;--title:#00005a;--paper:#1c1b14;--ink:#e6e6dc;--link:#8ab4ff;--peach:#3a2a22;--ok:#6fdc6f}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;background:var(--desk);color:var(--ink);font:14px/1.4 Arial,Helvetica,sans-serif;overflow:hidden}
+.raised{border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh);background:var(--face)}
+.sunk{border:2px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);box-shadow:inset 1px 1px var(--dk)}
+button,.btn{font:inherit;color:var(--ink);background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh);padding:3px 10px;cursor:pointer;text-decoration:none;display:inline-block}
+button:active,.btn:active,button.on{border-color:var(--dk) var(--hi) var(--hi) var(--dk);box-shadow:inset 1px 1px var(--sh)}
+#icons{position:fixed;left:8px;top:calc(8px + env(safe-area-inset-top,0px));display:flex;flex-direction:column;flex-wrap:wrap;gap:4px;max-height:calc(100vh - 70px);z-index:1}
+.ico{width:78px;text-align:center;color:#fff;font-size:12px;cursor:pointer;padding:3px;text-shadow:1px 1px #000;user-select:none}
+.ico b{display:block;font-size:30px;line-height:1.2;font-weight:normal}
+.ico:active{background:var(--title)}
+.w{position:fixed;max-width:calc(100vw - 12px);padding:3px}
+.w.hid{display:none}
+.w.max{left:0!important;top:env(safe-area-inset-top,0px)!important;width:100vw!important;max-width:none;bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+.w.max .wb{max-height:none;height:calc(100% - 26px)}
+.tb{background:var(--title);color:#fff;font-weight:bold;padding:3px 5px;display:flex;align-items:center;gap:6px;cursor:default;touch-action:none}
+.tb .x{margin-left:auto;display:flex;gap:2px}
+.tb i{font-style:normal;width:18px;height:16px;background:var(--face);color:var(--ink);font-size:11px;line-height:13px;text-align:center;cursor:pointer;border:1px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi)}
+.wb{background:var(--face);padding:6px;max-height:calc(100vh - 120px);overflow:auto}
+.board{background:var(--paper);padding:10px}
+.head{text-align:center;margin-bottom:8px}
+.head img{width:84px;height:84px;image-rendering:pixelated;border:2px solid var(--dk)}
+.head h1{margin:4px 0 0;color:var(--red);font-size:32px;letter-spacing:-1px;font-family:Tahoma,Arial,sans-serif}
+.phone{background:var(--red);color:#fff;font-weight:bold;padding:5px;text-align:center;margin:8px 0}
+.tabs{display:flex;flex-wrap:wrap;gap:3px;margin-bottom:8px}
+.box{border:1px solid var(--red);margin:8px 0}
+.box h2{margin:0;background:var(--red);color:#fff;font-size:15px;padding:3px 8px}
+.box .in{padding:8px 10px;background:var(--peach)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}
+.card{border:1px solid var(--red);background:var(--peach);display:flex;flex-direction:column}
+.card .ph{height:140px;display:flex;align-items:center;justify-content:center;background:var(--face);overflow:hidden;font-family:monospace}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.card .t{padding:6px 8px;flex:1}
+.card b{color:var(--red)}
+.price{font-weight:bold;color:var(--ok)}
+.card .a{padding:6px 8px;display:flex;gap:4px;flex-wrap:wrap}
+a{color:var(--link)}
+input,select,textarea{font:inherit;width:100%;padding:3px;background:var(--paper);color:var(--ink);margin:2px 0 6px}
+label{font-weight:bold;font-size:13px}
+.line{display:flex;justify-content:space-between;gap:8px;border-bottom:1px dotted var(--sh);padding:3px 0}
+.adm{background:var(--peach);border:1px dashed var(--red);padding:8px;margin-top:10px}
+.bignum{font-size:30px;font-weight:bold;text-align:center;background:var(--paper);color:var(--red);padding:12px 6px;margin:8px 0;letter-spacing:1px}
+canvas{width:100%;max-width:520px;height:auto;touch-action:none;background:#fff;cursor:crosshair;display:block}
+.pal{display:flex;flex-wrap:wrap;gap:2px;margin:4px 0;max-width:260px}
+.pal i{width:20px;height:20px;border:2px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);cursor:pointer}
+.calc{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:240px}
+.calc button{padding:10px 0;font-size:16px}
+.scr{max-width:240px;text-align:right;font:22px monospace;padding:6px;background:var(--paper);color:var(--ink);margin-bottom:6px;overflow:hidden}
+.task{position:fixed;left:0;right:0;bottom:0;padding:3px 4px calc(3px + env(safe-area-inset-bottom,0px));display:flex;gap:5px;align-items:center;z-index:9000}
+#tbtns{display:flex;gap:4px;flex:1;min-width:0;overflow:hidden}
+#tbtns button{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.clk{padding:3px 10px}
+#smenu{position:fixed;left:4px;bottom:calc(42px + env(safe-area-inset-bottom,0px));display:none;z-index:9001;min-width:200px}
+#smenu.show{display:block}
+#smenu button{display:block;width:100%;text-align:left;border:0;box-shadow:none;padding:7px 12px}
+#smenu button:hover{background:var(--title);color:#fff}
+#ss{position:fixed;inset:0;z-index:99999;background:#120a24;display:none}
+#ss.show{display:block}
+#ss canvas{width:100%;height:100%;max-width:none;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
+.ssh{position:absolute;left:12px;right:12px;color:#7cff7c;font:bold 13px/1.35 "Courier New",monospace;white-space:pre-wrap;text-shadow:0 0 6px #0f0,1px 1px #000;pointer-events:none}
+.ssh.t{top:calc(10px + env(safe-area-inset-top,0px))}
+.ssh.b{bottom:calc(10px + env(safe-area-inset-bottom,0px));color:#ff9bd8;text-shadow:0 0 6px #f0a,1px 1px #000}
+.crt{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 1px,transparent 1px 3px)}
+</style>
+</head>
+<body>
+<div id="icons" data-dyn></div>
+<div id="ss" data-dyn></div>
+<div id="wins" data-dyn></div>
+<div id="smenu" class="raised" data-dyn></div>
+<div class="task raised"><button id="start"><b>⊞ Inicio</b></button><div id="tbtns" data-dyn></div><button data-app="cart">🛒 <span id="cn">0</span></button><span class="clk sunk" id="clk" data-dyn></span></div>
+
+
+<script id="three3d" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script id="app">
+(function(){
+var PHONE="5492323346065",SHOW="2323 346065",LOGO="logo.png";
+var SECS=[
+{id:"info",name:"Información"},
+{id:"figuras",name:"Figuras",d:"Figuras de anime y de personajes famosos de películas y series, pensadas para decorar y lucir en tu estante."},
+{id:"armas",name:"Armas",d:"Armas para cosplay en escala 1:1, con detalles únicos para que tu disfraz se vea real."},
+{id:"llaveros",name:"Llaveros",d:"Llaveros de todo tipo: personajes, objetos, nombres y lo que se te ocurra."},
+{id:"comodidad",name:"Comodidad",d:"Soportes y accesorios útiles para el día a día: celulares, joysticks, auriculares y más."}];
+function $(i){return document.getElementById(i)}
+function esc(s){var d=document.createElement("div");d.textContent=s==null?"":String(s);return d.innerHTML}
+function money(n){return "$"+Number(n).toLocaleString("es-AR")}
+function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+var prods=[];
+var cart=ld("mp_cart_v1",{}),cur="info",isAdmin=false,z=10,n=0,top="",wins={},cname="",cnote="",lastLink="#";
+
+/* ---------- ventanas ---------- */
+function openWin(id,title,icon,html,w,after){
+ if(wins[id]){wins[id].classList.remove("hid");front(id);return wins[id]}
+ var el=document.createElement("div"),mob=innerWidth<700;n++;
+ el.className="w raised";el.dataset.id=id;
+ el.innerHTML='<div class="tb"><span>'+icon+' '+title+'</span><span class="x"><i data-min>_</i><i data-max>□</i><i data-x>×</i></span></div><div class="wb">'+html+'</div>';
+ el.style.width=mob?"calc(100vw - 12px)":w+"px";
+ el.style.left=mob?"6px":(110+(n%6)*26)+"px";
+ el.style.top="calc(env(safe-area-inset-top,0px) + "+((mob?8:16)+(n%6)*(mob?8:26))+"px)";
+ $("wins").appendChild(el);wins[id]=el;front(id);if(after)after(el);return el;
+}
+function front(id){if(!wins[id])return;wins[id].style.zIndex=++z;top=id;tbar()}
+function closeWin(id){if(wins[id]){wins[id].remove();delete wins[id];if(top===id)top="";tbar()}}
+function tbar(){
+ var h="";for(var id in wins){var t=wins[id].querySelector(".tb span").textContent;h+='<button data-tb="'+id+'" class="'+(top===id&&!wins[id].classList.contains("hid")?"on":"")+'">'+esc(t)+'</button>'}
+ $("tbtns").innerHTML=h;$("cn").textContent=cartCount();
+}
+document.addEventListener("pointerdown",function(e){
+ var w=e.target.closest(".w");if(w&&top!==w.dataset.id)front(w.dataset.id);
+ var tb=e.target.closest(".tb");if(!tb||e.target.closest("i")||innerWidth<700)return;
+ var el=tb.parentNode;if(el.classList.contains("max"))return;
+ var r=el.getBoundingClientRect(),dx=e.clientX-r.left,dy=e.clientY-r.top;
+ function mv(ev){el.style.left=Math.max(0,ev.clientX-dx)+"px";el.style.top=Math.max(0,ev.clientY-dy)+"px"}
+ function up(){removeEventListener("pointermove",mv);removeEventListener("pointerup",up)}
+ addEventListener("pointermove",mv);addEventListener("pointerup",up);
+});
+
+/* ---------- tienda ---------- */
+function cartCount(){var c=0;for(var k in cart)c+=cart[k];return c}
+function cartItems(){var a=[];for(var id in cart){var p=prods.filter(function(x){return x.id===id})[0];if(p)a.push({p:p,q:cart[id]})}return a}
+function openStore(){openWin("store","Mach1ne Print - Tienda","💀","",780);wins.store.classList.remove("hid");renderStore();front("store")}
+function renderStore(){
+ var el=wins.store;if(!el)return;
+ var h='<div class="board"><div class="head"><img src="'+LOGO+'" alt="Mach1ne Print"><h1>Mach1ne Print</h1><small>/3d/ - Impresiones 3D hechas a pedido</small></div>'+
+ '<div class="phone">📞 Pedidos por WhatsApp: '+SHOW+'</div><div class="tabs">';
+ SECS.forEach(function(s){h+='<button data-sec="'+s.id+'" class="'+(cur===s.id?"on":"")+'">'+s.name+'</button>'});
+ h+='<button data-app="cart">🛒 Carrito ('+cartCount()+')</button></div>';
+ if(cur==="info"){
+  h+='<div class="box"><h2>¿Qué es Mach1ne Print?</h2><div class="in">Somos un emprendimiento de impresión 3D. Hacemos figuras, armas para cosplay, llaveros y accesorios de comodidad. Todo se imprime a pedido, simple y funcional.</div></div>'+
+  '<div class="box"><h2>Secciones</h2><div class="in">'+SECS.slice(1).map(function(s){return '<p style="margin:4px 0"><b>'+s.name+':</b> '+esc(s.d)+'</p>'}).join("")+'</div></div>'+
+  '<div class="box"><h2>¿Cómo comprar?</h2><div class="in"><ol style="margin:0;padding-left:20px"><li>Elegí tus productos y agregalos al carrito.</li><li>Abrí el carrito, poné tu nombre y tocá “Finalizar compra”.</li><li>Se abre WhatsApp con tu pedido listo para enviar a '+SHOW+'.</li><li>Coordinamos pago y entrega por ahí.</li></ol></div></div>'+
+  '<div class="box"><h2>Escritorio</h2><div class="in">Los íconos del escritorio funcionan: Paint, Bloc de notas y Calculadora. Probalos mientras esperás tu pedido.</div></div>';
+ }else{
+  var s=SECS.filter(function(x){return x.id===cur})[0],list=prods.filter(function(p){return p.cat===cur});
+  h+='<div class="box"><h2>/'+s.id+'/ - '+s.name+'</h2><div class="in">'+esc(s.d)+'</div></div><div class="grid">';
+  if(!list.length)h+='<p>Todavía no hay productos en esta sección.</p>';
+  list.forEach(function(p){h+='<div class="card"><div class="ph">'+(p.img?'<img src="'+p.img+'" alt="">':'[ sin foto ]')+'</div><div class="t"><b>'+esc(p.name)+'</b><br><span class="price">'+money(p.price)+'</span><br><small>'+esc(p.desc)+'</small></div><div class="a"><button data-add="'+p.id+'">Agregar al carrito</button>'+'</div></div>'});
+  h+='</div>';
+ }
+ el.querySelector(".wb").innerHTML=h+'</div>';tbar();
+}
+
+/* ---------- carrito y compra ---------- */
+function openCart(){openWin("cart","Carrito de compras","🛒","",430);wins.cart.classList.remove("hid");renderCart();front("cart")}
+function renderCart(){
+ var el=wins.cart;if(!el)return;var it=cartItems(),tot=0,h="";
+ if(!it.length)h='<p>El carrito está vacío. Agregá productos desde la tienda.</p>';
+ else{
+  it.forEach(function(i){tot+=i.p.price*i.q;h+='<div class="line"><span>'+i.q+' × '+esc(i.p.name)+'</span><span>'+money(i.p.price*i.q)+' <button data-rm="'+i.p.id+'" style="padding:0 6px">−</button></span></div>'});
+  h+='<p><b>Total: '+money(tot)+'</b></p><label>Tu nombre</label><input id="cname" value="'+esc(cname).replace(/"/g,"&quot;")+'"><label>Notas (opcional)</label><input id="cnote" value="'+esc(cnote).replace(/"/g,"&quot;")+'"><button data-act="checkout"><b>Finalizar compra</b></button><p><small>Se abrirá WhatsApp con tu pedido para enviarlo al '+SHOW+'.</small></p>';
+ }
+ el.querySelector(".wb").innerHTML=h;tbar();if(wins.store)renderStore();
+}
+function checkout(){
+ var it=cartItems();if(!it.length)return;if(!cname.trim()){alert("Poné tu nombre para armar el pedido");return}
+ var tot=0,m="Hola Mach1ne Print! Quiero hacer este pedido:\n";
+ it.forEach(function(i){tot+=i.p.price*i.q;m+="- "+i.q+" x "+i.p.name+" ("+money(i.p.price*i.q)+")\n"});
+ m+="Total: "+money(tot)+"\nNombre: "+cname.trim();if(cnote.trim())m+="\nNotas: "+cnote.trim();
+ lastLink="https://wa.me/"+PHONE+"?text="+encodeURIComponent(m);
+ window.open(lastLink,"_blank","noopener");
+ var nm=cname.trim();cart={};sv("mp_cart_v1",cart);closeWin("cart");
+ openWin("done","¡Pedido listo!","✅",contactHtml('<p><b>¡Gracias, '+esc(nm)+'!</b> Tu pedido quedó armado. Enviá el mensaje de WhatsApp a este número para confirmarlo:</p>',true),420);
+ if(wins.store)renderStore();tbar();
+}
+function contactHtml(intro,order){
+ return intro+'<div class="bignum">📞 '+SHOW+'</div><p style="text-align:center">'+(order?'<a class="btn" href="'+lastLink+'" target="_blank" rel="noopener">Abrir WhatsApp con el pedido</a> ':'<a class="btn" href="https://wa.me/'+PHONE+'" target="_blank" rel="noopener">Abrir WhatsApp</a> ')+'<a class="btn" href="tel:+'+PHONE+'">Llamar</a> <button data-act="copy">Copiar número</button></p>';
+}
+
+/* ---------- apps ---------- */
+function openPaint(){
+ var cols=["#000000","#808080","#800000","#808000","#008000","#008080","#000080","#800080","#ffffff","#c0c0c0","#ff0000","#ffff00","#00ff00","#00ffff","#0000ff","#ff00ff"];
+ openWin("paint","Paint","🎨",'<div><button data-pt="pen" class="on">✏️ Lápiz</button> <button data-pt="eraser">🧽 Borrador</button> <select id="psz" style="width:auto"><option value="2">Fino</option><option value="5" selected>Medio</option><option value="10">Grueso</option></select> <button data-pa="clear">Limpiar</button> <button data-pa="save">Guardar PNG</button></div><div class="pal">'+cols.map(function(c){return '<i data-pc="'+c+'" style="background:'+c+'"></i>'}).join("")+'</div><canvas width="520" height="340"></canvas>',560,function(el){
+  var cv=el.querySelector("canvas"),c=cv.getContext("2d"),col="#000000",tool="pen",down=false,lx=0,ly=0;
+  c.fillStyle="#fff";c.fillRect(0,0,cv.width,cv.height);
+  function pos(e){var r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]}
+  function sz(){return Number(el.querySelector("#psz").value)*(tool==="eraser"?3:1)}
+  el.addEventListener("click",function(e){
+   var t=e.target.closest("[data-pt],[data-pc],[data-pa]");if(!t)return;
+   if(t.dataset.pc){col=t.dataset.pc;tool="pen";el.querySelectorAll("[data-pt]").forEach(function(b){b.classList.toggle("on",b.dataset.pt==="pen")})}
+   if(t.dataset.pt){tool=t.dataset.pt;el.querySelectorAll("[data-pt]").forEach(function(b){b.classList.toggle("on",b===t)})}
+   if(t.dataset.pa==="clear"){c.fillStyle="#fff";c.fillRect(0,0,cv.width,cv.height)}
+   if(t.dataset.pa==="save"){cv.toBlob(function(b){var u=URL.createObjectURL(b),a=document.createElement("a");a.href=u;a.download="dibujo-mach1ne.png";document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000)})}
+  });
+  cv.addEventListener("pointerdown",function(e){down=true;cv.setPointerCapture(e.pointerId);var p=pos(e);lx=p[0];ly=p[1];c.fillStyle=tool==="eraser"?"#fff":col;c.beginPath();c.arc(lx,ly,sz()/2,0,7);c.fill()});
+  cv.addEventListener("pointermove",function(e){if(!down)return;var p=pos(e);c.strokeStyle=tool==="eraser"?"#fff":col;c.lineWidth=sz();c.lineCap="round";c.beginPath();c.moveTo(lx,ly);c.lineTo(p[0],p[1]);c.stroke();lx=p[0];ly=p[1]});
+  cv.addEventListener("pointerup",function(){down=false});cv.addEventListener("pointercancel",function(){down=false});
+ });
+}
+function openNotes(){
+ openWin("notes","Bloc de notas","📝",'<textarea id="nt" rows="12" style="font-family:monospace"></textarea><button data-act="newnote">Nuevo</button> <small>Se guarda solo en tu navegador.</small>',420,function(el){var t=el.querySelector("#nt");t.value=ld("mp_note","");t.addEventListener("input",function(){sv("mp_note",t.value)})});
+}
+function openCalc(){
+ var keys=["C","÷","×","-","7","8","9","+","4","5","6","=","1","2","3","0",".","",""," "].slice(0,20);
+ var layout=["7","8","9","÷","4","5","6","×","1","2","3","-","0",".","=","+","C"];
+ var h='<div class="scr sunk" id="scr">0</div><div class="calc">'+layout.map(function(k){return '<button data-k="'+k+'"'+(k==="C"?' style="grid-column:span 4"':'')+'>'+k+'</button>'}).join("")+'</div>';
+ var d="0",acc=null,op=null,fresh=true;
+ function cal(a,b,o){return o==="+"?a+b:o==="-"?a-b:o==="×"?a*b:a/b}
+ openWin("calc","Calculadora","🧮",h,280,function(el){
+  el.addEventListener("click",function(e){
+   var b=e.target.closest("[data-k]");if(!b)return;var k=b.dataset.k,s=el.querySelector("#scr");
+   if(/[0-9.]/.test(k)){if(fresh){d=k==="."?"0.":k;fresh=false}else if(!(k==="."&&d.indexOf(".")>-1))d+=k}
+   else if(k==="C"){d="0";acc=null;op=null;fresh=true}
+   else{var v=parseFloat(d);
+    if(op==="÷"&&v===0&&!fresh){d="Error";acc=null;op=null;fresh=true}
+    else{if(acc===null||(fresh&&!op))acc=v;else if(!fresh)acc=cal(acc,v,op);d=String(parseFloat(acc.toPrecision(12)));op=k==="="?null:k;fresh=true}}
+   s.textContent=d;
+  });
+ });
+}
+function openContact(){openWin("contact","Contacto","📞",contactHtml("<p><b>Mach1ne Print</b> - pedidos y consultas por WhatsApp:</p>",false),400)}
+function openTrash(){openWin("trash","Papelera de reciclaje","🗑️","<p>La papelera está vacía.</p><p><small>(Las impresiones fallidas se reciclan en filamento nuevo.)</small></p>",340)}
+function openApp(a){
+ if(a.indexOf("sec:")===0){cur=a.slice(4);openStore();return}
+ var f={store:openStore,paint:openPaint,notes:openNotes,calc:openCalc,contact:openContact,trash:openTrash,cart:openCart,saver:startSaver}[a];if(f)f();
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener("input",function(e){if(e.target.id==="cname")cname=e.target.value;if(e.target.id==="cnote")cnote=e.target.value});
+document.addEventListener("click",function(e){
+ var t=e.target.closest("[data-app],[data-sec],[data-add],[data-del],[data-rm],[data-act],[data-x],[data-max],[data-min],[data-tb],#start"),sm=$("smenu");
+ if(!t||t.id!=="start")sm.classList.remove("show");if(!t)return;
+ var w=t.closest(".w"),id=w&&w.dataset.id;
+ if(t.id==="start"){sm.classList.toggle("show");return}
+ if(t.dataset.app){openApp(t.dataset.app);return}
+ if(t.dataset.sec){cur=t.dataset.sec;renderStore();return}
+ if(t.dataset.add){cart[t.dataset.add]=(cart[t.dataset.add]||0)+1;sv("mp_cart_v1",cart);if(wins.cart)renderCart();else renderStore();tbar();return}
+ if(t.dataset.rm){cart[t.dataset.rm]--;if(cart[t.dataset.rm]<=0)delete cart[t.dataset.rm];sv("mp_cart_v1",cart);renderCart();return}
+ if(t.hasAttribute("data-x")){closeWin(id);return}
+ if(t.hasAttribute("data-min")){w.classList.add("hid");top="";tbar();return}
+ if(t.hasAttribute("data-max")){w.classList.toggle("max");return}
+ if(t.dataset.tb){var x=wins[t.dataset.tb];if(x.classList.contains("hid")){x.classList.remove("hid");front(t.dataset.tb)}else if(top===t.dataset.tb){x.classList.add("hid");top="";tbar()}else front(t.dataset.tb);return}
+ var a=t.dataset.act;
+ if(a==="checkout")checkout();
+ if(a==="copy"){try{navigator.clipboard.writeText(SHOW).then(function(){t.textContent="¡Copiado!"})}catch(er){t.textContent=SHOW}}
+ if(a==="newnote"){var nt=$("nt");if(nt){nt.value="";sv("mp_note","")}}
+});
+
+/* ---------- protector de pantalla 3D (impresora low-poly) ---------- */
+var ssOn=false,ssRaf=0,ssClean=[],lastAct=Date.now();
+["pointermove","pointerdown","keydown","wheel","touchstart","scroll"].forEach(function(ev){addEventListener(ev,function(){lastAct=Date.now()},{passive:true,capture:true})});
+setInterval(function(){var a=document.activeElement;if(!ssOn&&Date.now()-lastAct>60000&&!(a&&/INPUT|TEXTAREA|SELECT/.test(a.tagName)))startSaver()},5000);
+function stopSaver(){cancelAnimationFrame(ssRaf);ssClean.forEach(function(f){try{f()}catch(e){}});ssClean=[];var b=$("ss");b.classList.remove("show");b.innerHTML="";ssOn=false;lastAct=Date.now()}
+function startSaver(){
+ if(ssOn)return;ssOn=true;var T=window.THREE,box=$("ss");
+ box.innerHTML='<canvas></canvas><div class="crt"></div><div class="ssh t" id="sst"></div><div class="ssh b" id="ssb"></div>';box.classList.add("show");
+ function exit(){stopSaver()}
+ var tm=setTimeout(function(){box.addEventListener("pointerdown",exit);addEventListener("keydown",exit);ssClean.push(function(){box.removeEventListener("pointerdown",exit);removeEventListener("keydown",exit)})},500);
+ ssClean.push(function(){clearTimeout(tm)});
+ var R=null;try{R=new T.WebGLRenderer({canvas:box.querySelector("canvas"),antialias:false})}catch(e){R=null}
+ if(!R){$("sst").textContent="No se pudo iniciar el modo 3D en este dispositivo.\nTocá para volver.";return}
+ ssClean.push(function(){R.dispose()});
+ R.localClippingEnabled=true;
+ var sc=new T.Scene(),cam=new T.PerspectiveCamera(50,1,.1,60);sc.background=new T.Color(0x120a24);sc.fog=new T.Fog(0x120a24,12,30);
+ function size(){var w=Math.max(160,Math.round(innerWidth/2)),h=Math.max(120,Math.round(innerHeight/2));R.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix()}
+ size();addEventListener("resize",size);ssClean.push(function(){removeEventListener("resize",size)});
+ sc.add(new T.AmbientLight(0x8878aa,.9));var dl=new T.DirectionalLight(0xffffff,.8);dl.position.set(5,8,4);sc.add(dl);
+ sc.add(new T.GridHelper(40,40,0xff00aa,0x3a1a66));
+ function M(c){return new T.MeshPhongMaterial({color:c,flatShading:true,shininess:0})}
+ function bx(w,h,d,m,x,y,z,p){var o=new T.Mesh(new T.BoxGeometry(w,h,d),m);o.position.set(x,y,z);(p||sc).add(o);return o}
+ var frame=M(0x2a2a33),alu=M(0xb8b8c8),bedM=M(0x303040),nozM=M(0x777777);
+ bx(6,.5,6,frame,0,.25,0);bx(.35,5,.35,frame,-2.2,3,-2.3);bx(.35,5,.35,frame,2.2,3,-2.3);
+ var bedG=new T.Group();bedG.position.y=.5;sc.add(bedG);bx(3.8,.15,3.8,bedM,0,.1,0,bedG);
+ var xg=new T.Group();sc.add(xg);bx(4.6,.3,.5,frame,0,0,-2.3,xg);
+ var ng=new T.Group();xg.add(ng);bx(.5,.25,2.1,frame,0,0,-1.25,ng);bx(.6,.5,.6,alu,0,-.3,0,ng);
+ var nz=new T.Mesh(new T.ConeGeometry(.18,.35,6),nozM);nz.rotation.x=Math.PI;nz.position.y=-.7;ng.add(nz);
+ var sg=new T.Group();sg.position.set(0,5.9,-2.3);sc.add(sg);var sp=new T.Mesh(new T.CylinderGeometry(.85,.85,.5,10),M(0xff7a1a));sp.rotation.z=Math.PI/2;sg.add(sp);
+ var cols={figuras:0xff77aa,armas:0x88ddff,llaveros:0xffdd44,comodidad:0x99ff77};
+ function build(cat){
+  var g=new T.Group(),m=M(cols[cat]||0xffffff),H=2.9;m.side=T.DoubleSide;
+  function add(geo,x,y,z,rx,rz){var o=new T.Mesh(geo,m);o.position.set(x,y,z);if(rx)o.rotation.x=rx;if(rz)o.rotation.z=rz;g.add(o)}
+  if(cat==="armas"){H=3.3;add(new T.CylinderGeometry(.14,.14,.5,6),0,.25,0);add(new T.BoxGeometry(1.5,.16,.24),0,.58,0);add(new T.BoxGeometry(.42,2.4,.1),0,1.86,0);add(new T.ConeGeometry(.21,.3,4),0,3.21,0)}
+  else if(cat==="llaveros"){H=2.7;add(new T.CylinderGeometry(1,1,.3,10),0,1,0,Math.PI/2);add(new T.TorusGeometry(.32,.09,5,8),0,2.25,0)}
+  else if(cat==="comodidad"){H=2.2;add(new T.BoxGeometry(2.2,.22,1.6),0,.11,0);add(new T.BoxGeometry(2.2,2,.2),0,1.12,-.4,-.4);add(new T.BoxGeometry(2.2,.45,.2),0,.45,.6)}
+  else{add(new T.CylinderGeometry(.6,.75,1.5,8),0,.75,0);add(new T.IcosahedronGeometry(.6,1),0,2,0);add(new T.BoxGeometry(.25,1.1,.25),-.85,1,0,0,.25);add(new T.BoxGeometry(.25,1.1,.25),.85,1,0,0,-.25);add(new T.ConeGeometry(.15,.4,4),-.3,2.65,0);add(new T.ConeGeometry(.15,.4,4),.3,2.65,0)}
+  return {g:g,m:m,H:H};
+ }
+ var plane=new T.Plane(new T.Vector3(0,-1,0),0),list=prods.length?prods:[{cat:"figuras",name:"figura"}],pi=Math.floor(Math.random()*list.length),mdl=null,pname="",phase=0,t0=performance.now(),prog=0;
+ function next(){
+  if(mdl){bedG.remove(mdl.g);mdl.g.traverse(function(o){if(o.geometry)o.geometry.dispose()})}
+  var p=list[pi%list.length];pi++;mdl=build(p.cat);mdl.m.clippingPlanes=[plane];mdl.g.position.y=.175;bedG.add(mdl.g);
+  pname=String(p.name).replace(/\s+/g,"_").slice(0,24);phase=0;t0=performance.now();
+ }
+ next();
+ var tOld=performance.now(),hs="";
+ function loop(now){
+  ssRaf=requestAnimationFrame(loop);
+  var dt=Math.min(.05,(now-tOld)/1000),el=(now-t0)/1000,sec=now/1000,bedT=60,nozT=200,st="";tOld=now;
+  if(phase===0){var k=Math.min(1,el/4);bedT=25+35*k;nozT=25+175*k;prog=0;st="CALENTANDO CAMA Y BOQUILLA...";if(el>=4){phase=1;t0=now}}
+  else if(phase===1){prog=Math.min(1,el/40);st="IMPRIMIENDO...";if(el>=40){phase=2;t0=now}}
+  else{prog=1;bedT=60-el*3;nozT=200-el*20;st="¡IMPRESIÓN TERMINADA!";if(el>=4){next();return}}
+  var py=.675+mdl.H*prog;plane.constant=py+(prog>=1?.05:-.005);
+  bedG.position.z=phase===1?Math.sin(sec*1.4)*.7:0;
+  ng.position.x=phase===1?Math.sin(sec*3.1)*.8:-1.8;
+  xg.position.y=py+.9+(phase===2?Math.min(1.5,el):0);
+  sg.rotation.x+=dt*(phase===1?2:0);
+  var bk=Math.max(0,(bedT-25)/35),nk=Math.max(0,(nozT-25)/175);
+  bedM.emissive.setRGB(bk*.6,bk*.1,0);nozM.emissive.setRGB(nk,nk*.35,0);
+  var a=sec*.25;cam.position.set(Math.sin(a)*10,5.2+Math.sin(a*.7)*.8,Math.cos(a)*10);cam.lookAt(0,2.6,0);
+  R.render(sc,cam);
+  var pc=Math.floor(prog*100),tl=Math.round(mdl.H*10),ly=Math.floor(prog*tl),bar="";
+  for(var i=0;i<16;i++)bar+=i<Math.round(prog*16)?"█":"░";
+  var s="MACH1NE PRINT // ENDER-3 SIM v1.0\nARCHIVO: "+pname+".gcode\nCAMA: "+Math.round(bedT)+"°C   BOQUILLA: "+Math.round(nozT)+"°C\nCAPA "+ly+"/"+tl+"  ["+bar+"] "+pc+"%\n"+st;
+  if(s!==hs){hs=s;$("sst").textContent=s}
+ }
+ $("ssb").textContent="Pedí el tuyo en Mach1ne Print · WhatsApp "+SHOW+"\n(tocá o tecleá para volver)";
+ ssRaf=requestAnimationFrame(loop);
+}
+
+/* ---------- inicio ---------- */
+var ICONS=[["sec:info","🖥️","Mi PC"],["store","💀","Tienda"],["sec:figuras","📁","Figuras"],["sec:armas","📁","Armas"],["sec:llaveros","📁","Llaveros"],["sec:comodidad","📁","Comodidad"],["paint","🎨","Paint"],["notes","📝","Bloc de notas"],["calc","🧮","Calculadora"],["contact","📞","Contacto"],["cart","🛒","Carrito"],["saver","📺","Protector"],["trash","🗑️","Papelera"]];
+$("icons").innerHTML=ICONS.map(function(i){return '<div class="ico" data-app="'+i[0]+'"><b>'+i[1]+'</b>'+i[2]+'</div>'}).join("");
+$("smenu").innerHTML=ICONS.map(function(i){return '<button data-app="'+i[0]+'">'+i[1]+' '+i[2]+'</button>'}).join("");
+function clock(){$("clk").textContent=new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"})}
+clock();setInterval(clock,30000);
+openStore();
+fetch("products.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
+ prods=(d.products||[]).map(function(p){p.id=(p.cat||"x")+"-"+String(p.name).toLowerCase().replace(/[^a-z0-9]+/g,"-").slice(0,40);return p});
+ for(var k in cart){if(!prods.some(function(p){return p.id===k}))delete cart[k]}sv("mp_cart_v1",cart);
+ renderStore();if(wins.cart)renderCart();tbar();
+}).catch(function(){});
+})();
+</script>
+</body>
+</html>
