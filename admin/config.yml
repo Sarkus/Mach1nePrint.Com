@@ -1,0 +1,35 @@
+# Panel para cargar productos. Solo entra quien tenga permiso de escritura en el repositorio de GitHub.
+backend:
+  name: github
+  repo: Sarkus/Mach1nePrint.Com  # <-- CAMBIAR (ejemplo: juanperez/mach1ne-print)
+  branch: main
+
+locale: es
+media_folder: "img/productos"
+public_folder: "/img/productos"
+
+collections:
+  - name: catalogo
+    label: Catálogo
+    files:
+      - name: productos
+        label: Productos de Mach1ne Print
+        file: products.json
+        fields:
+          - label: Productos
+            name: products
+            widget: list
+            summary: "{{fields.name}} ({{fields.cat}})"
+            fields:
+              - label: Sección
+                name: cat
+                widget: select
+                options:
+                  - { label: Figuras, value: figuras }
+                  - { label: Armas, value: armas }
+                  - { label: Llaveros, value: llaveros }
+                  - { label: Comodidad, value: comodidad }
+              - { label: Nombre, name: name, widget: string }
+              - { label: Precio (ARS), name: price, widget: number, value_type: int, min: 0 }
+              - { label: Descripción breve, name: desc, widget: text, required: false }
+              - { label: Foto (idealmente menos de 1 MB), name: img, widget: image, required: false }
