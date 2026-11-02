@@ -1,7 +1,6 @@
-# Panel para cargar productos. Solo entra quien tenga permiso de escritura en el repositorio de GitHub.
 backend:
   name: github
-  repo: Sarkus/Mach1nePrint.Com  # <-- CAMBIAR (ejemplo: juanperez/mach1ne-print)
+  repo: Sarkus/Mach1nePrint.Com  
   branch: main
 
 locale: es
