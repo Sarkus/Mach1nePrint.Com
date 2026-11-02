@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: Sarkus/Mach1nePrint.Com  
+  name: git-gateway
   branch: main
 
 locale: es
