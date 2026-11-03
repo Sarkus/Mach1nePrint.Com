@@ -90,6 +90,23 @@ canvas{width:100%;max-width:520px;height:auto;touch-action:none;background:#fff;
 @media (prefers-reduced-motion:reduce){#clip img{animation:none}}
 #clip .cb{margin-top:6px;display:flex;gap:4px;flex-wrap:wrap}
 #clip .cb button{min-height:26px;padding:2px 8px;font-size:12px}
+.bd{display:inline-block;margin:3px 0;padding:1px 7px;border-radius:9px;font-size:11px;font-weight:bold;color:#fff}
+.bd.st{background:#2e8b2e}.bd.pe{background:#c97a00}
+.wmp{background:linear-gradient(#10224f,#05102d);color:#cfe0ff;padding:8px;border:1px solid #000}
+.wmp .viz{height:54px;display:flex;align-items:flex-end;gap:3px;background:#000;padding:4px;border:1px solid #3a5ca8;margin-bottom:6px}
+.wmp .viz i{flex:1;background:linear-gradient(#7cff7c,#1e9e1e);height:15%}
+.wmp.play .viz i{animation:eq .9s ease-in-out infinite alternate}
+.wmp.play .viz i:nth-child(3n){animation-duration:.6s}
+.wmp.play .viz i:nth-child(3n+1){animation-duration:1.1s;animation-delay:-.3s}
+.wmp.play .viz i:nth-child(4n){animation-delay:-.5s}
+@keyframes eq{from{height:12%}to{height:95%}}
+@media (prefers-reduced-motion:reduce){.wmp.play .viz i{animation:none;height:50%}}
+.wmp .ttl{font-weight:bold;color:#fff;font-size:14px}
+.wmp .tm,.wmp .pst{font-size:11px;color:#9db8f0}
+.wmp input[type=range]{padding:0;border:0;background:transparent;margin:4px 0}
+.wmp .ctl{display:flex;gap:4px;align-items:center}
+.wmp .ctl button{min-height:28px;padding:0 10px}
+.wmp .ctl input[type=range]{flex:1;min-width:0}
 #ss{position:fixed;inset:0;z-index:99999;background:#120a24;display:none}
 #ss.show{display:block}
 #ss canvas{width:100%;height:100%;max-width:none;display:block;image-rendering:pixelated;image-rendering:crisp-edges}
@@ -108,6 +125,8 @@ canvas{width:100%;max-width:520px;height:auto;touch-action:none;background:#fff;
  .head h1{font-size:26px}
  #clip .bub{max-width:190px}
  #tbtns button{max-width:90px}
+ .w.mini{left:auto!important;right:6px!important;top:auto!important;bottom:calc(42px + env(safe-area-inset-bottom,0px))!important;width:260px!important;max-width:calc(100vw - 12px);border-radius:9px 9px 0 0;border-width:3px;border-top:0}
+ .w.mini .wb{height:auto;padding:6px}
 }
 </style>
 </head>
@@ -115,15 +134,16 @@ canvas{width:100%;max-width:520px;height:auto;touch-action:none;background:#fff;
 <div id="icons" data-dyn></div>
 <div id="ss" data-dyn></div>
 <div id="clip" data-dyn></div>
+<audio id="bgm" loop preload="auto" src="music.mp3"></audio>
 <div id="wins" data-dyn></div>
 <div id="smenu" class="raised" data-dyn></div>
-<div class="task"><button id="start">🪟 inicio</button><div id="tbtns" data-dyn></div><div class="tray"><button data-app="cart">🛒 <span id="cn">0</span></button><span id="clk" data-dyn></span></div></div>
+<div class="task"><button id="start">🪟 inicio</button><div id="tbtns" data-dyn></div><div class="tray"><button id="mutebtn" data-pl="mute" title="Silenciar o activar el sonido">🔊</button><button data-app="cart">🛒 <span id="cn">0</span></button><span id="clk" data-dyn></span></div></div>
 
 
 <script id="three3d" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script id="app">
 (function(){
-var EMAIL="mach1neprintoficial@gmail.com",CLIPPY="clippy.png",LOGO="logo.png";
+var EMAIL="mach1neprintoficial@gmail.com",CLIPPY="clippy2.png",LOGO="logo.png";
 var SECS=[
 {id:"info",name:"Información"},
 {id:"figuras",name:"Figuras",d:"Figuras de anime y de personajes famosos de películas y series, pensadas para decorar y lucir en tu estante."},
@@ -136,7 +156,7 @@ function money(n){return "$"+Number(n).toLocaleString("es-AR")}
 function ld(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 var prods=[];
-var cart=ld("mp_cart_v1",{}),cur="info",isAdmin=false,z=10,n=0,top="",wins={},cname="",cnote="",lastLink="#",lastBody="";
+var cart=ld("mp_cart_v1",{}),cur="info",isAdmin=false,z=10,n=0,top="",wins={},cname="",cnote="",lastLink="#",lastBody="",lastSubj="Pedido Mach1ne Print";
 
 /* ---------- ventanas ---------- */
 function openWin(id,title,icon,html,w,after){
@@ -174,17 +194,18 @@ function renderStore(){
  var h='<div class="board"><div class="head"><img src="'+LOGO+'" alt="Mach1ne Print"><h1>Mach1ne Print</h1><small>/3d/ - Impresiones 3D hechas a pedido</small></div>'+
  '<div class="phone">✉️ Pedidos por correo: '+EMAIL+'</div><div class="tabs">';
  SECS.forEach(function(s){h+='<button data-sec="'+s.id+'" class="'+(cur===s.id?"on":"")+'">'+s.name+'</button>'});
- h+='<button data-app="cart">🛒 Carrito ('+cartCount()+')</button></div>';
+ h+='<button data-app="stl">📐 Imprimí tu STL</button><button data-app="cart">🛒 Carrito ('+cartCount()+')</button></div>';
  if(cur==="info"){
   h+='<div class="box"><h2>¿Qué es Mach1ne Print?</h2><div class="in">Somos un emprendimiento de impresión 3D. Hacemos figuras, armas para cosplay, llaveros y accesorios de comodidad. Todo se imprime a pedido, simple y funcional.</div></div>'+
   '<div class="box"><h2>Secciones</h2><div class="in">'+SECS.slice(1).map(function(s){return '<p style="margin:4px 0"><b>'+s.name+':</b> '+esc(s.d)+'</p>'}).join("")+'</div></div>'+
   '<div class="box"><h2>¿Cómo comprar?</h2><div class="in"><ol style="margin:0;padding-left:20px"><li>Elegí tus productos y agregalos al carrito.</li><li>Abrí el carrito, poné tu nombre y tocá “Finalizar compra”.</li><li>Te mostramos el pedido ya redactado para enviarlo por correo a '+EMAIL+'.</li><li>Coordinamos pago y entrega por ahí.</li></ol></div></div>'+
+  '<div class="box"><h2>Stock y tiempos de entrega</h2><div class="in"><p style="margin:4px 0">'+badge({stock:"stock"})+' Ya está impreso y listo para despachar.</p><p style="margin:4px 0">'+badge({})+' Lo imprimimos cuando lo pedís: demora de 24 a 48 hs antes del despacho.</p><p style="margin:4px 0">¿No encontrás lo que buscás? Usá <b>Imprimí tu STL</b> y te pasamos una cotización a medida.</p></div></div>'+
   '<div class="box"><h2>Escritorio</h2><div class="in">Los íconos del escritorio funcionan: Paint, Bloc de notas y Calculadora. Probalos mientras esperás tu pedido.</div></div>';
  }else{
   var s=SECS.filter(function(x){return x.id===cur})[0],list=prods.filter(function(p){return p.cat===cur});
   h+='<div class="box"><h2>/'+s.id+'/ - '+s.name+'</h2><div class="in">'+esc(s.d)+'</div></div><div class="grid">';
   if(!list.length)h+='<p>Todavía no hay productos en esta sección.</p>';
-  list.forEach(function(p){h+='<div class="card"><div class="ph">'+(p.img?'<img src="'+p.img+'" alt="">':'[ sin foto ]')+'</div><div class="t"><b>'+esc(p.name)+'</b><br><span class="price">'+money(p.price)+'</span><br><small>'+esc(p.desc)+'</small></div><div class="a"><button data-add="'+p.id+'">Agregar al carrito</button>'+'</div></div>'});
+  list.forEach(function(p){h+='<div class="card"><div class="ph">'+(p.img?'<img src="'+p.img+'" alt="">':'[ sin foto ]')+'</div><div class="t"><b>'+esc(p.name)+'</b><br><span class="price">'+money(p.price)+'</span><br>'+badge(p)+'<br><small>'+esc(p.desc)+'</small></div><div class="a"><button data-add="'+p.id+'">Agregar al carrito</button>'+'</div></div>'});
   h+='</div>';
  }
  var wb=el.querySelector(".wb"),st=wb.scrollTop;wb.innerHTML=h+'</div>';wb.scrollTop=st;tbar();
@@ -204,15 +225,15 @@ function renderCart(){
 function checkout(){
  var it=cartItems();if(!it.length)return;if(!cname.trim()){alert("Poné tu nombre para armar el pedido");return}
  var tot=0,m="Hola Mach1ne Print! Quiero hacer este pedido:\n";
- it.forEach(function(i){tot+=i.p.price*i.q;m+="- "+i.q+" x "+i.p.name+" ("+money(i.p.price*i.q)+")\n"});
+ it.forEach(function(i){tot+=i.p.price*i.q;m+="- "+i.q+" x "+i.p.name+" ("+money(i.p.price*i.q)+", "+(i.p.stock==="stock"?"en stock":"a pedido, 24-48 hs")+")\n"});
  m+="Total: "+money(tot)+"\nNombre: "+cname.trim();if(cnote.trim())m+="\nNotas: "+cnote.trim();
- lastBody=m;lastLink="mailto:"+EMAIL+"?subject="+encodeURIComponent("Pedido Mach1ne Print - "+cname.trim())+"&body="+encodeURIComponent(m);
+ lastBody=m;lastSubj="Pedido Mach1ne Print";lastLink="mailto:"+EMAIL+"?subject="+encodeURIComponent("Pedido Mach1ne Print - "+cname.trim())+"&body="+encodeURIComponent(m);
  var nm=cname.trim();cart={};sv("mp_cart_v1",cart);closeWin("cart");
- openWin("done","¡Pedido listo!","✅",contactHtml('<p><b>¡Gracias, '+esc(nm)+'!</b> Tu pedido quedó armado. Enviá el pedido por correo a esta dirección para confirmarlo:</p>',true),420);
+ closeWin("done");openWin("done","¡Pedido listo!","✅",contactHtml('<p><b>¡Gracias, '+esc(nm)+'!</b> Tu pedido quedó armado. Enviá el pedido por correo a esta dirección para confirmarlo:</p>',true),420);
  if(wins.store)renderStore();tbar();
 }
 function contactHtml(intro,order){
- var gm="https://mail.google.com/mail/?view=cm&to="+EMAIL+(order?"&su="+encodeURIComponent("Pedido Mach1ne Print")+"&body="+encodeURIComponent(lastBody):"");
+ var gm="https://mail.google.com/mail/?view=cm&to="+EMAIL+(order?"&su="+encodeURIComponent(lastSubj)+"&body="+encodeURIComponent(lastBody):"");
  gm=gm.replace(/&/g,"&amp;");
  return intro+'<div class="bignum">✉️ '+EMAIL+'</div><p style="text-align:center">'+(order?'<a class="btn" href="'+lastLink+'" target="_blank" rel="noopener"><b>Enviar pedido (app de correo)</b></a> ':'<a class="btn" href="mailto:'+EMAIL+'" target="_blank" rel="noopener">Escribir un correo</a> ')+'<a class="btn" href="'+gm+'" target="_blank" rel="noopener">Abrir en Gmail</a> <button data-act="copy">Copiar correo</button>'+(order?' <button data-act="copyorder">Copiar pedido</button>':'')+'</p>';
 }
@@ -268,9 +289,50 @@ function openPC(){
  h+='<div class="xpbox"><h3>Filamentos</h3><div style="overflow-x:auto"><table class="spec"><tr><th>Material</th><th>Estado</th><th>Boquilla</th><th>Cama</th><th>Uso</th></tr>'+F.map(function(r){return '<tr>'+r.map(function(c,i){return '<td>'+(i===0?'<b>'+c+'</b>':c)+'</td>'}).join("")+'</tr>'}).join("")+'</table></div><p style="margin:6px 8px;font-size:12px">Compatibles según Creality: PLA, PETG y TPU (95A), de 1,75 mm. Las temperaturas son valores típicos de referencia y pueden variar según la marca del filamento.</p></div>';
  openWin("pc","Mi equipo","🖥️",h,580);
 }
+function badge(p){return p.stock==="stock"?'<span class="bd st">En stock (despacho inmediato)</span>':'<span class="bd pe">A pedido (impresión: 24-48 hs)</span>'}
+function openInsta(){openWin("insta","Instagram","📷",'<p><b>@mach1neprintoficial</b></p><p>Seguinos para ver trabajos terminados, novedades y stock.</p><p style="text-align:center"><a class="btn" href="https://www.instagram.com/mach1neprintoficial/" target="_blank" rel="noopener"><b>Abrir Instagram</b></a></p>',380)}
+function openSTL(){
+ openWin("stl","Imprimí tu STL","📐",'<p>¿No encontrás lo que buscás en el catálogo? Pegá el enlace de un modelo de <b>MakerWorld</b> o <b>Printables</b>, o elegí tu propio archivo, y te pasamos una cotización a medida.</p><label>Tu nombre</label><input id="qn"><label>Enlace del modelo (MakerWorld, Printables, etc.)</label><input id="ql" type="url" placeholder="https://..."><label>O elegí tu archivo (STL, 3MF, OBJ)</label><input id="qf" type="file" accept=".stl,.3mf,.obj,.step,.stp"><label>Material</label><select id="qm"><option>PLA</option><option>PETG</option><option>TPU (flexible)</option><option>No sé, recomiéndenme</option></select><label>Tamaño o escala (opcional)</label><input id="qs" placeholder="Ej: 15 cm de alto"><label>Cantidad</label><input id="qq" type="number" min="1" value="1"><label>Detalles (color, uso, plazo)</label><textarea id="qd" rows="3"></textarea><button data-act="quote"><b>Pedir cotización</b></button><p><small>Te respondemos por correo. Los archivos no se suben a la web: si elegís uno, adjuntalo en el correo que se abre al final.</small></p>',460);
+}
+function sendQuote(){
+ var g=function(i){return $(i).value.trim()},nm=g("qn"),lk=g("ql"),fl=$("qf").files[0];
+ if(!nm){alert("Poné tu nombre");return}
+ if(!lk&&!fl){alert("Pegá un enlace del modelo o elegí un archivo");return}
+ if(lk&&!/^https?:\/\//i.test(lk)){alert("El enlace debe empezar con http:// o https://");return}
+ var m="Hola Mach1ne Print! Quiero una cotización a medida:\nNombre: "+nm+(lk?"\nModelo: "+lk:"")+(fl?"\nArchivo (lo adjunto a este correo): "+fl.name+" ("+Math.round(fl.size/1024)+" KB)":"")+"\nMaterial: "+g("qm")+"\nTamaño: "+(g("qs")||"sin especificar")+"\nCantidad: "+(g("qq")||"1")+"\nDetalles: "+(g("qd")||"-");
+ lastBody=m;lastSubj="Cotización STL - "+nm;lastLink="mailto:"+EMAIL+"?subject="+encodeURIComponent(lastSubj)+"&body="+encodeURIComponent(m);
+ closeWin("stl");closeWin("quote");
+ openWin("quote","Cotización lista","✅",contactHtml('<p><b>¡Gracias, '+esc(nm)+'!</b> Tu pedido de cotización quedó redactado.'+(fl?' <b>Acordate de adjuntar "'+esc(fl.name)+'" en el correo.</b>':'')+' Enviá el correo a esta dirección:</p>',true),440);
+}
+var au=$("bgm"),started=false,userPaused=false;
+try{au.volume=ld("mp_vol",.5);au.muted=ld("mp_mute",false)}catch(e){}
+function fmt(s){if(!isFinite(s))return"0:00";var m=Math.floor(s/60),x=Math.floor(s%60);return m+":"+(x<10?"0":"")+x}
+function syncPlayer(){
+ var silent=au.muted||au.volume===0,mb=$("mutebtn");if(mb)mb.textContent=silent?"🔇":"🔊";
+ var el=wins.player;if(!el)return;var q=function(s){return el.querySelector(s)};
+ q(".wmp").classList.toggle("play",!au.paused);
+ q("#pplay").textContent=au.paused?"▶":"⏸";q("#pmute").textContent=silent?"🔇":"🔊";
+ q("#pst").textContent=au.error?"No se pudo cargar la canción":au.paused?(au.currentTime>0?"En pausa":"Detenido"):"Reproduciendo";
+ q("#ptm").textContent=fmt(au.currentTime);q("#pdur").textContent=fmt(au.duration);
+ if(au.duration)q("#pseek").value=Math.round(au.currentTime/au.duration*1000);
+ q("#pvol").value=Math.round(au.volume*100);
+}
+["play","pause","timeupdate","volumechange","loadedmetadata","error"].forEach(function(ev){au.addEventListener(ev,syncPlayer)});
+au.addEventListener("volumechange",function(){sv("mp_vol",au.volume);sv("mp_mute",au.muted)});
+function plToggle(){if(au.paused){userPaused=false;au.play().catch(function(){})}else{userPaused=true;au.pause()}}
+function plStop(){userPaused=true;au.pause();au.currentTime=0;syncPlayer()}
+function muteToggle(){au.muted=!au.muted;if(!au.muted&&au.volume===0)au.volume=.5;syncPlayer()}
+function openPlayer(){
+ var bars="";for(var i=0;i<14;i++)bars+="<i></i>";
+ openWin("player","Reproductor de Windows Media","🎵",'<div class="wmp"><div class="viz">'+bars+'</div><div class="ttl">HEADSPACE FM</div><div class="tm"><span id="ptm">0:00</span> / <span id="pdur">0:00</span></div><input type="range" id="pseek" min="0" max="1000" value="0" aria-label="Posición"><div class="ctl"><button data-pl="play" id="pplay" aria-label="Reproducir o pausar">▶</button><button data-pl="stop" aria-label="Detener">■</button><button data-pl="mute" id="pmute" aria-label="Silenciar">🔊</button><input type="range" id="pvol" min="0" max="100" value="50" aria-label="Volumen"></div><div class="pst" id="pst">Detenido</div></div>',270,function(el){
+  el.classList.add("mini");el.style.left="auto";el.style.right="14px";el.style.top="calc(env(safe-area-inset-top,0px) + 14px)";syncPlayer();
+ });
+}
+function firstGo(){if(started)return;started=true;if(!userPaused)au.play().catch(function(){})}
+["pointerdown","keydown","touchstart"].forEach(function(ev){addEventListener(ev,firstGo,{capture:true,passive:true})});
 function openApp(a){
  if(a.indexOf("sec:")===0){cur=a.slice(4);openStore();return}
- var f={store:openStore,paint:openPaint,notes:openNotes,calc:openCalc,pc:openPC,contact:openContact,trash:openTrash,cart:openCart,saver:startSaver}[a];if(f)f();
+ var f={store:openStore,paint:openPaint,notes:openNotes,calc:openCalc,pc:openPC,insta:openInsta,stl:openSTL,player:openPlayer,contact:openContact,trash:openTrash,cart:openCart,saver:startSaver}[a];if(f)f();
 }
 
 var clipT=0;
@@ -281,11 +343,12 @@ function clip(msg,btns){
 }
 
 /* ---------- eventos ---------- */
-document.addEventListener("input",function(e){if(e.target.id==="cname")cname=e.target.value;if(e.target.id==="cnote")cnote=e.target.value});
+document.addEventListener("input",function(e){if(e.target.id==="pseek"&&au.duration)au.currentTime=e.target.value/1000*au.duration;if(e.target.id==="pvol"){au.volume=e.target.value/100;if(au.muted&&au.volume>0)au.muted=false}if(e.target.id==="cname")cname=e.target.value;if(e.target.id==="cnote")cnote=e.target.value});
 document.addEventListener("click",function(e){
- var t=e.target.closest("[data-cc],[data-app],[data-sec],[data-add],[data-del],[data-rm],[data-act],[data-x],[data-max],[data-min],[data-tb],#start"),sm=$("smenu");
+ var t=e.target.closest("[data-pl],[data-cc],[data-app],[data-sec],[data-add],[data-del],[data-rm],[data-act],[data-x],[data-max],[data-min],[data-tb],#start"),sm=$("smenu");
  if(!t||t.id!=="start")sm.classList.remove("show");if(!t)return;
  var w=t.closest(".w"),id=w&&w.dataset.id;if(t.hasAttribute("data-cc"))$("clip").classList.remove("show");
+ if(t.dataset.pl){var pl=t.dataset.pl;if(pl==="play")plToggle();else if(pl==="stop")plStop();else muteToggle();return}
  if(t.id==="start"){sm.classList.toggle("show");return}
  if(t.dataset.app){openApp(t.dataset.app);return}
  if(t.dataset.sec){cur=t.dataset.sec;renderStore();wins.store.querySelector(".wb").scrollTop=0;return}
@@ -297,6 +360,7 @@ document.addEventListener("click",function(e){
  if(t.dataset.tb){var x=wins[t.dataset.tb];if(x.classList.contains("hid")){x.classList.remove("hid");front(t.dataset.tb)}else if(top===t.dataset.tb){x.classList.add("hid");top="";tbar()}else front(t.dataset.tb);return}
  var a=t.dataset.act;
  if(a==="checkout")checkout();
+ if(a==="quote")sendQuote();
  if(a==="copy"){try{navigator.clipboard.writeText(EMAIL).then(function(){t.textContent="¡Copiado!"})}catch(er){t.textContent=EMAIL}}
  if(a==="copyorder"){try{navigator.clipboard.writeText(lastBody).then(function(){t.textContent="¡Pedido copiado!"})}catch(er){}}
  if(a==="newnote"){var nt=$("nt");if(nt){nt.value="";sv("mp_note","")}}
@@ -374,12 +438,13 @@ function startSaver(){
 }
 
 /* ---------- inicio ---------- */
-var ICONS=[["pc","🖥️","Mi equipo"],["store","💀","Tienda"],["sec:figuras","📁","Figuras"],["sec:armas","📁","Armas"],["sec:llaveros","📁","Llaveros"],["sec:comodidad","📁","Comodidad"],["paint","🎨","Paint"],["notes","📝","Bloc de notas"],["calc","🧮","Calculadora"],["contact","📞","Contacto"],["cart","🛒","Carrito"],["saver","📺","Protector"],["trash","🗑️","Papelera"]];
+var ICONS=[["pc","🖥️","Mi equipo"],["store","💀","Tienda"],["sec:figuras","📁","Figuras"],["sec:armas","📁","Armas"],["sec:llaveros","📁","Llaveros"],["sec:comodidad","📁","Comodidad"],["paint","🎨","Paint"],["notes","📝","Bloc de notas"],["calc","🧮","Calculadora"],["contact","📞","Contacto"],["cart","🛒","Carrito"],["stl","📐","Imprimí tu STL"],["insta","📷","Instagram"],["player","🎵","Reproductor"],["saver","📺","Protector"],["trash","🗑️","Papelera"]];
 $("icons").innerHTML=ICONS.map(function(i){return '<div class="ico" data-app="'+i[0]+'"><b>'+i[1]+'</b>'+i[2]+'</div>'}).join("");
 $("smenu").innerHTML='<div class="sh"><img src="'+LOGO+'" alt="">Mach1ne Print</div>'+ICONS.map(function(i){return '<button class="mi" data-app="'+i[0]+'">'+i[1]+' '+i[2]+'</button>'}).join("");
 function clock(){$("clk").textContent=new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"})}
 clock();setInterval(clock,30000);
 openStore();
+openPlayer();if(innerWidth<700){wins.player.classList.add("hid");top="";tbar()}syncPlayer();
 fetch("products.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){
  prods=(d.products||[]).map(function(p){p.id=(p.cat||"x")+"-"+String(p.name).toLowerCase().replace(/[^a-z0-9]+/g,"-").slice(0,40);return p});
  for(var k in cart){if(!prods.some(function(p){return p.id===k}))delete cart[k]}sv("mp_cart_v1",cart);

@@ -6,7 +6,7 @@ Los pedidos se redactan para enviarlos por correo a mach1neprintoficial@gmail.co
 ## Estructura
 - `index.html`: la tienda completa (escritorio Windows XP con fondo Bliss, carrito, Clip, Paint, Mi equipo con la ficha de la impresora, protector 3D).
 - `products.json`: catálogo de productos (arranca vacío).
-- `bliss.jpg`, `clippy.png`, `logo.png`: imágenes del sitio.
+- `bliss.jpg`, `clippy2.png`, `logo.png`: imágenes del sitio. `music.mp3`: canción del reproductor.
 - `img/productos/`: fotos que subas desde el panel.
 - `admin/`: panel Decap CMS para agregar, editar y borrar productos.
 - `netlify.toml`: configuración de Netlify.
@@ -39,6 +39,14 @@ Alternativa sin panel: editar `products.json` directamente en GitHub (campos `ca
 1. Comprá el dominio.
 2. En Netlify: **Domain management → Add a domain** y seguí las instrucciones de DNS (el HTTPS se activa solo).
 3. Volvé a la OAuth App de GitHub y cambiá la Homepage URL por tu dominio nuevo. El callback `https://api.netlify.com/auth/done` queda igual.
+
+## Stock y tiempos
+Cada producto tiene el campo **Disponibilidad**: "En stock (despacho inmediato)" o "A pedido (impresión 24-48 hs)". Si no lo completás, se muestra "A pedido".
+
+## Imprimí tu STL, Instagram y música
+- "Imprimí tu STL" arma un correo de cotización con el enlace (MakerWorld, Printables) o el nombre del archivo. Los archivos no se suben a la web: el cliente los adjunta en el correo.
+- El ícono de Instagram abre https://www.instagram.com/mach1neprintoficial/.
+- La música (`music.mp3`) arranca cuando el visitante toca la página por primera vez, porque los navegadores no permiten sonido automático. Tiene silenciar y volumen. Usá música sobre la que tengas derechos.
 
 ## Notas
 - Las fotos se muestran recortadas a un cuadrado; subí imágenes livianas (menos de 1 MB).
