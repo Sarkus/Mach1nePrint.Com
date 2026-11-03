@@ -1,3 +1,11 @@
 {
-  "products": []
+  "products": [
+    {
+      "cat": "armas",
+      "img": "/img/productos/2024-04-14_8ae5b23b4f43f.webp",
+      "name": "MP5-S",
+      "price": 75000,
+      "desc": "PLA negro. Extremo detalle y personalizable al privado."
+    }
+  ]
 }
