@@ -6,6 +6,13 @@
       "price": 2000,
       "img": "/img/productos/ed9f39e99d07a23f.webp",
       "desc": "Llavero fácil de llevar de corazón PLA rojo con argolla dorada."
+    },
+    {
+      "cat": "armas",
+      "name": "Mossberg 500 / 590",
+      "price": 120000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/872544d3cb47e8fe.webp"
     }
   ]
 }
