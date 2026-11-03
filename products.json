@@ -24,7 +24,7 @@
     {
       "cat": "armas",
       "name": "USP-S ",
-      "price": 75000,
+      "price": 50000,
       "img": "/img/productos/2025-12-06_16cd322cc99b78.webp",
       "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida."
     },
@@ -38,14 +38,14 @@
     {
       "cat": "armas",
       "name": "Revolver de repeticion RD2",
-      "price": 75003,
+      "price": 50000,
       "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
       "img": "/img/productos/21ccdcca31ba3c3d.webp"
     },
     {
       "cat": "armas",
       "name": "Thompson 12",
-      "price": 75000,
+      "price": 50000,
       "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.\n",
       "img": "/img/productos/2025-05-12_e18abad5e3ab2.webp"
     },
@@ -69,6 +69,83 @@
       "price": 24000,
       "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
       "img": "/img/productos/2025-03-11_302aae356ac1c.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Handcannon Re4",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/eec0b497f5c73382.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Samurai Edge Re7",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/2025-09-07_aa245ba077ca08.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Hacha Leon Re9",
+      "price": 35000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/4b9b2edcba4efbe3.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Silver Ghost OG Re4",
+      "price": 50000,
+      "img": "/img/productos/2023-11-25_1bb220711de83.webp",
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida."
+    },
+    {
+      "cat": "armas",
+      "name": "SG-O9 R",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/2025-05-11_368e7dc1690aa.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Cuchillo OG Leon Re4",
+      "price": 35000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/2025-09-02_47c55d3c0f0718.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Sentinel Nine Re9",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/e7035e88b56738b9.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Requiem Re9",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/c72ce727bab727ea.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Samurai Edge Re1",
+      "price": 50000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/2025-07-19_aa45c7d142772.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "Ak-47",
+      "price": 120000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/6e97e1580da5f7cc.webp"
+    },
+    {
+      "cat": "armas",
+      "name": "MP5-S",
+      "price": 95000,
+      "desc": "Material: Impreso en filamento de alta resistencia (PLA+ / PETG / ABS), ideal para convenciones, sesiones de fotos y exhibición.\n\nDetalles y Acabado: Diseño ergonómico con texturas realistas y acabado mate posprocesado para máxima calidad visual.\n\nCompatibilidad Táctica: Incluye rieles y ranuras de montaje para personalizar con accesorios de utilería (ópticas farsa, correas, etc.).\n\nSeguridad: Pieza totalmente sólida / inerte de polímero, fabricada exclusivamente como accesorio estético y de utilería para eventos, cine y cosplay.\n\nPersonalización: Consultá por combinaciones de colores, ensambles modulares o accesorios a medida.",
+      "img": "/img/productos/2024-04-14_8ae5b23b4f43f.webp"
     }
   ]
 }
