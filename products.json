@@ -1,3 +1,11 @@
 {
-  "products": []
+  "products": [
+    {
+      "cat": "llaveros",
+      "name": "Llavero de Corazón ",
+      "price": 2000,
+      "img": "/img/productos/ed9f39e99d07a23f.webp",
+      "desc": "Llavero fácil de llevar de corazón PLA rojo con argolla dorada."
+    }
+  ]
 }
