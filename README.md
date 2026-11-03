@@ -1,11 +1,12 @@
 # Mach1ne Print: tienda
 
 Sitio estático (sin servidor propio). El catálogo vive en `products.json` y se edita desde `/admin`.
-Los pedidos llegan por WhatsApp al 2323 346065 (número configurado en `index.html`, variable `PHONE`).
+Los pedidos se redactan para enviarlos por correo a mach1neprintoficial@gmail.com (configurado en `index.html`, variable `EMAIL`).
 
 ## Estructura
-- `index.html`: la tienda completa (escritorio Windows 95, carrito, Paint, protector 3D).
+- `index.html`: la tienda completa (escritorio Windows XP con fondo Bliss, carrito, Clip, Paint, Mi equipo con la ficha de la impresora, protector 3D).
 - `products.json`: catálogo de productos (arranca vacío).
+- `bliss.jpg`, `clippy.png`, `logo.png`: imágenes del sitio.
 - `img/productos/`: fotos que subas desde el panel.
 - `admin/`: panel Decap CMS para agregar, editar y borrar productos.
 - `netlify.toml`: configuración de Netlify.
@@ -42,5 +43,5 @@ Alternativa sin panel: editar `products.json` directamente en GitHub (campos `ca
 ## Notas
 - Las fotos se muestran recortadas a un cuadrado; subí imágenes livianas (menos de 1 MB).
 - El carrito se guarda en el navegador de cada cliente.
-- No hay pagos online: el pago y la entrega se coordinan por WhatsApp.
-- Para cambiar el número de WhatsApp, buscá `PHONE=` y `SHOW=` en `index.html`.
+- No hay pagos online: el pago y la entrega se coordinan por correo.
+- Para cambiar el correo, buscá `EMAIL=` en `index.html`.
