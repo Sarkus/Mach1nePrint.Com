@@ -6,6 +6,62 @@
       "price": 75000,
       "img": "/img/productos/2024-04-14_8ae5b23b4f43f.webp",
       "desc": "TEST"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Funda para Airpods Pro ",
+      "price": 3500,
+      "desc": "Funda para facilitar el agarre o estética de tus auriculares.",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-201848.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Organizador de cables USB",
+      "price": 3500,
+      "desc": "Lo que dice el nombre",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202105.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Exprimidor de pasta dental",
+      "price": 3500,
+      "desc": "Lo que dice el nombre",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202222.png"
+    },
+    {
+      "cat": "llaveros",
+      "name": "Soporte para bálsamo labial llavero",
+      "price": 4000,
+      "desc": "Lo que dice el nombre.",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202246.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Soporte para gafas en la visera del coche",
+      "price": 2200,
+      "desc": "Facil de colocar y usar.",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202342.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Soporte para libros",
+      "price": 5000,
+      "desc": "Estantería para libros",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202525.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Organizador de cable",
+      "price": 5000,
+      "desc": "vienen 5 unidades.",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202544.png"
+    },
+    {
+      "cat": "comodidad",
+      "name": "Basurero personalizado para escritorio",
+      "price": 8500,
+      "desc": "Colocación fácil y comodidad total",
+      "img": "/img/productos/captura-de-pantalla-2026-11-12-202626.png"
     }
   ]
 }
